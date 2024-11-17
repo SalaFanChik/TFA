@@ -1,0 +1,22 @@
+<main>
+  <h1>Two-Factor Authentication</h1>
+
+  <% if (errorMessage) { %>
+    <div class="error">
+      <p><%= errorMessage %></p>
+    </div>
+  <% } %>
+
+  <p>Please enter the 2FA code from your authentication app:</p>
+
+  <form action="/auth/verify-2fa" method="POST">
+    <div>
+      <input type="hidden" name="username" value="<%= username %>"> <!-- Передаем username в скрытом поле -->
+    </div>
+    <div>
+      <label for="token">2FA Code:</label>
+      <input type="text" id="token" name="token" required>
+    </div>
+    <button type="submit">Verify Code</button>
+  </form>
+</main>

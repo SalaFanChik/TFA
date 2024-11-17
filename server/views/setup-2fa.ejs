@@ -1,0 +1,22 @@
+<main>
+  <h1>Setup Two-Factor Authentication</h1>
+  
+  <% if (errorMessage) { %>
+    <div class="error">
+      <p><%= errorMessage %></p>
+    </div>
+  <% } %>
+
+  <p>Scan the QR code below with your authentication app (e.g., Google Authenticator):</p>
+
+  <% if (qrCode) { %>
+    <div>
+      <img src="<%= qrCode %>" alt="2FA QR Code" />
+    </div>
+    <p>Alternatively, you can enter the secret manually:</p>
+    <pre><%= secret %></pre>
+  <% } else { %>
+    <p>QR code not available yet. Please try again.</p>
+  <% } %>
+
+</main>

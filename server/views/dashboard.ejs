@@ -1,0 +1,25 @@
+<main>
+  <h1>Dashboard</h1>
+
+  <div>
+    <h2>Welcome, <%= username %>!</h2>
+    <p><strong>First Name:</strong> <%= firstName %></p>
+    <p><strong>Last Name:</strong> <%= lastName %></p>
+    <p><strong>Age:</strong> <%= age %></p>
+    <p><strong>Gender:</strong> <%= gender %></p>
+
+    <h3>Two-Factor Authentication</h3>
+    <% if (twoFAEnabled) { %>
+      <p>Your two-factor authentication is <strong>enabled</strong>.</p>
+    <% } else { %>
+      <p>Your two-factor authentication is <strong>not enabled</strong>.</p>
+        <form action="/auth/setup-2fa" method="GET">
+        <button type="submit">Enable 2FA</button>
+      </form>
+    <% } %>
+  </div>
+
+  <div>
+    <a href="/auth/logout">Logout</a>
+  </div>
+</main>

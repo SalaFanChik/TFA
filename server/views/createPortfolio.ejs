@@ -1,0 +1,32 @@
+<main>
+  <h1>Create Portfolio Item</h1>
+
+  <% if (role !== 'admin' && role !== 'editor') { %>
+    <p>You do not have permission to create portfolio items.</p>
+  <% } else { %>
+    <form action="/blog/portfolio" method="POST" enctype="multipart/form-data">
+      <% if (errorMessage) { %>
+        <div class="error">
+          <p><%= errorMessage %></p>
+        </div>
+      <% } %>
+
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+      </div>
+
+      <div>
+        <label for="images">Images (at least 3 required):</label>
+        <input type="file" id="images" name="images" multiple required>
+      </div>
+
+      <button type="submit">Create Portfolio Item</button>
+    </form>
+  <% } %>
+</main>
